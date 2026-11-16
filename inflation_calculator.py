@@ -23,7 +23,7 @@ def load_data():
             "CPI data file not found. Check the data folder."
         )
 
-    df = pd.read_csv(file_path)
+    df = pd.read_csv(file_path, skiprows=8)
 
     # Remove extra spaces from column names
     df.columns = df.columns.str.strip()
@@ -67,7 +67,7 @@ def load_data():
     # Remove missing or invalid observations
     df = df.dropna(subset=["Date", "CPI"])
 
-    # Standardize dates to the first day of each month
+    # Standardize dates to the first of each month
     df["Date"] = (
         df["Date"].dt.to_period("M").dt.to_timestamp()
     )
@@ -103,7 +103,7 @@ def load_data():
     return df
 
 
-# 3. CREATE CPI GRAPH
+#creates graph
 
 def create_graph(df):
 
@@ -172,10 +172,20 @@ def create_graph(df):
 
     print("CPI graph saved to images/cpi_graph.png")
 
+    # Save graph
+    plt.savefig(
+    "images/cpi_graph.png",
+    dpi=300,
+    bbox_inches="tight"
+)
+
+    print("CPI graph saved to images/cpi_graph.png")
+
+    # Display graph
     plt.show()
 
 
-# 4. VALIDATE PRICE INPUT
+# price input
 
 def get_price():
 
