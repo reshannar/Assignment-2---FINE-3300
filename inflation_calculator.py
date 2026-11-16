@@ -4,7 +4,7 @@
 # Uses monthly CPI data from the Bank of Canada
 # ============================================================
 
-# 1. IMPORT LIBRARIES
+# libararies
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -12,7 +12,7 @@ from datetime import datetime
 from pathlib import Path
 
 
-# 2. LOAD AND PREPARE CPI DATA
+# enters in cpi data
 
 def load_data():
 
@@ -215,7 +215,7 @@ def get_price():
             print("Invalid price. Please enter a number.")
 
 
-# 5. VALIDATE DATE INPUT
+# date input
 
 def get_date(prompt, df):
 
@@ -267,10 +267,10 @@ def get_date(prompt, df):
             )
 
 
-# 6. INFLATION CALCULATOR
+# calculator
 
 def inflation_calculator(df):
-
+    #just to look nice in the display
     print("\n========================================")
     print("       CANADIAN INFLATION CALCULATOR")
     print("========================================")
@@ -368,7 +368,7 @@ def inflation_calculator(df):
     print("========================================")
 
 
-# 7. MAIN PROGRAM
+# main program code
 
 def main():
 
@@ -392,7 +392,7 @@ def main():
         print("Data error:", error)
 
 
-# Run program
+# Runs program
 if __name__ == "__main__":
 
     main()
